@@ -12,6 +12,8 @@ BOOL tweakEnabled = YES;
 int tweakMode = 0;
 int switchDelay = 1200; // 20 minutes
 
+NSTimer *timer;
+
 %hook SpringBoard
 -(void)applicationDidFinishLaunching:(id)arg1 {
 	%orig;
@@ -26,7 +28,12 @@ int switchDelay = 1200; // 20 minutes
 	NSDictionary *userInfo = [notification userInfo];
 	long long mode = [[userInfo objectForKey:@"mode"] intValue];
 	if (mode == 2) { // if 'everyone'
-		[NSTimer scheduledTimerWithTimeInterval:switchDelay repeats:NO block:^(NSTimer *timer) {
+		if (timer) {
+			[timer invalidate];
+			timer = nil;
+		}
+		
+		timer = [NSTimer scheduledTimerWithTimeInterval:switchDelay repeats:NO block:^(NSTimer *timer) {
 			[[%c(SFAirDropDiscoveryController) new] setDiscoverableMode:tweakMode];
 		}];
 	}
