@@ -1,20 +1,12 @@
-#import <Foundation/Foundation.h>
-
-@interface NSDistributedNotificationCenter : NSNotificationCenter
-@end
-
-@interface SFAirDropDiscoveryController : NSObject
--(void)setDiscoverableMode:(long long)arg1;
-@end
+#import "Tweak.h"
 
 static NSMutableDictionary *prefs;
 BOOL tweakEnabled = YES;
 int tweakMode = 0;
 int switchDelay = 1200; // 20 minutes
 
-long long previousMode = 0;
-
 NSTimer *timer;
+long long previousMode = 0;
 
 %hook SpringBoard
 -(void)applicationDidFinishLaunching:(id)arg1 {
