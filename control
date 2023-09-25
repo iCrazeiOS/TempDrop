@@ -1,0 +1,9 @@
+Package: com.icraze.tempdrop
+Name: TempDrop
+Version: 1.0
+Architecture: iphoneos-arm
+Description: airdrop16 clone
+Maintainer: iCraze
+Author: iCraze
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000)

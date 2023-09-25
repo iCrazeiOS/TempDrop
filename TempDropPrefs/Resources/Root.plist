@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>TempDrop</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.icraze.tempdropprefs</string>
+			<key>key</key>
+			<string>enabled</string>
+			<key>label</key>
+			<string>Tweak Enabled</string>
+			<key>PostNotification</key>
+			<string>com.icraze.tempdropprefs.settingschanged</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Mode</string>
+			<key>footerText</key>
+			<string>Select which discovery mode TempDrop should automatically switch to</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<key>PSSegmentCell</key>
+			<key>validValues</key>
+			<array>
+				<string>0</string>
+				<string>1</string>
+			</array>
+			<key>validTitles</key>
+			<array>
+				<string>Receiving Off</string>
+				<string>Contacts Only</string>
+			</array>
+			<key>shortTitles</key>
+			<array>
+				<string>Receiving Off</string>
+				<string>Contacts Only</string>
+			</array>
+			<key>default</key>
+			<string>0</string>
+			<key>defaults</key>
+			<string>com.icraze.tempdropprefs</string>
+			<key>key</key>
+			<string>mode</string>
+			<key>PostNotification</key>
+			<string>com.icraze.tempdropprefs.settingschanged</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Delay</string>
+			<key>footerText</key>
+			<string>Time (in minutes) to wait before automatically switching from 'Everyone'</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSliderCell</string>
+			<key>default</key>
+			<real>20</real>
+			<key>defaults</key>
+			<string>com.icraze.tempdropprefs</string>
+			<key>key</key>
+			<string>delay</string>
+			<key>min</key>
+			<real>0</real>
+			<key>max</key>
+			<real>60</real>
+			<key>showValue</key>
+			<true/>
+			<key>isSegmented</key>
+			<true/>
+			<key>segmentCount</key>
+			<integer>12</integer>
+			<key>PostNotification</key>
+			<string>com.icraze.tempdropprefs.settingschanged</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>TempDrop</string>
+</dict>
+</plist>
