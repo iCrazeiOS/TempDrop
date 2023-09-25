@@ -12,6 +12,8 @@ BOOL tweakEnabled = YES;
 int tweakMode = 0;
 int switchDelay = 1200; // 20 minutes
 
+long long previousMode = 0;
+
 NSTimer *timer;
 
 %hook SpringBoard
@@ -26,15 +28,21 @@ NSTimer *timer;
 	if (!tweakEnabled) return;
 	
 	NSDictionary *userInfo = [notification userInfo];
-	long long mode = [[userInfo objectForKey:@"mode"] intValue];
-	if (mode == 2) { // if 'everyone'
+	long long newMode = [[userInfo objectForKey:@"mode"] longLongValue];
+	if (newMode == 2) { // if 'everyone'
+		previousMode = [[userInfo objectForKey:@"previousMode"] longLongValue];
+
 		if (timer) {
 			[timer invalidate];
 			timer = nil;
 		}
-		
+
 		timer = [NSTimer scheduledTimerWithTimeInterval:switchDelay repeats:NO block:^(NSTimer *timer) {
-			[[%c(SFAirDropDiscoveryController) new] setDiscoverableMode:tweakMode];
+			if (tweakMode == 2) {
+				[[%c(SFAirDropDiscoveryController) new] setDiscoverableMode:previousMode];
+			} else {
+				[[%c(SFAirDropDiscoveryController) new] setDiscoverableMode:tweakMode];
+			}
 		}];
 	}
 }

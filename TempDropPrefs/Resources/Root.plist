@@ -39,16 +39,19 @@
 			<array>
 				<string>0</string>
 				<string>1</string>
+				<string>2</string>
 			</array>
 			<key>validTitles</key>
 			<array>
 				<string>Receiving Off</string>
 				<string>Contacts Only</string>
+				<string>Previous</string>
 			</array>
 			<key>shortTitles</key>
 			<array>
 				<string>Receiving Off</string>
 				<string>Contacts Only</string>
+				<string>Previous</string>
 			</array>
 			<key>default</key>
 			<string>0</string>
