@@ -2,7 +2,7 @@ Package: com.icraze.tempdrop
 Name: TempDrop
 Version: 1.0
 Architecture: iphoneos-arm
-Description: airdrop16 clone
+Description: Automatically switch away from "everyone" AirDrop visibility after a set amount of time
 Maintainer: iCraze
 Author: iCraze
 Section: Tweaks
