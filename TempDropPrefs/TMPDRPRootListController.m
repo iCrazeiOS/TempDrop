@@ -54,6 +54,8 @@
 	UIApplication *app = [UIApplication sharedApplication];
 	if ([app canOpenURL:[NSURL URLWithString:@"sileo://"]]) {
 		[app openURL:[NSURL URLWithString:@"sileo://package/com.icraze.nexus"] options:@{} completionHandler:nil];
+	} else if ([app canOpenURL:[NSURL URLWithString:@"zbra://"]]) {
+		[app openURL:[NSURL URLWithString:@"zbra://packages/com.icraze.nexus?source=https://havoc.app"] options:@{} completionHandler:nil];
 	} else {
 		[app openURL:[NSURL URLWithString:@"https://havoc.app/package/nexus"] options:@{} completionHandler:nil];
 	}
