@@ -6,3 +6,6 @@
 @interface SFAirDropDiscoveryController : NSObject
 -(void)setDiscoverableMode:(long long)arg1;
 @end
+
+@interface CCUILabeledRoundButton : NSObject
+@end

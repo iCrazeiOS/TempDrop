@@ -40,6 +40,21 @@ long long previousMode = 0;
 }
 %end
 
+%hook CCUILabeledRoundButton
+-(void)setSubtitle:(id)subtitle {
+	id vc = [self valueForKey:@"_viewControllerForAncestor"];
+	if ([vc isMemberOfClass:%c(CCUIConnectivityAirDropViewController)]) {
+		id controller = [vc valueForKey:@"_airDropDiscoveryController"];
+		if ([[controller valueForKey:@"_discoverableMode"] longLongValue] == 2) {
+			%orig([NSString stringWithFormat:@"Everyone for %d minutes", switchDelay / 60]);
+			return;
+		}
+	}
+	%orig;
+}
+%end
+
+
 
 static void loadPrefs() {
 	// thanks xina for making us do this :)
