@@ -41,4 +41,25 @@
 	if (!_specifiers) _specifiers = [self loadSpecifiersFromPlistName:@"Root" target:self];
 	return _specifiers;
 }
+
+-(void)github {
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/iCrazeiOS/TempDrop"] options:@{} completionHandler:nil];
+}
+
+-(void)twitter {
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://twitter.com/iCrazeiOS"] options:@{} completionHandler:nil];
+}
+
+-(void)nexus {
+	UIApplication *app = [UIApplication sharedApplication];
+	if ([app canOpenURL:[NSURL URLWithString:@"sileo://"]]) {
+		[app openURL:[NSURL URLWithString:@"sileo://package/com.icraze.nexus"] options:@{} completionHandler:nil];
+	} else {
+		[app openURL:[NSURL URLWithString:@"https://havoc.app/package/nexus"] options:@{} completionHandler:nil];
+	}
+}
+
+-(void)paypal {
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://paypal.me/iCrazeiOS/2.50"] options:@{} completionHandler:nil];
+}
 @end
